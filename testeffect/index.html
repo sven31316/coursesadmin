@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a href="javascript:;" class="file gradient">选择文件
+    　　<input type="file">
+    <a class="fileerrorTip1">哈哈</a>
+</a>
+<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+    $(".file").on("change", "input[type='file']", function () {
+        var filePath = $(this).val();
+        if (filePath.indexOf("jpg") != -1 || filePath.indexOf("png") != -1) {
+            $(".fileerrorTip1").html("").hide();
+            var arr = filePath.split('\\');
+            var fileName = arr[arr.length - 1];
+            $(".showFileName1").html(fileName);
+        } else {
+            $(".showFileName1").html("");
+            $(".fileerrorTip1").html("您未上传文件，或者您上传文件类型有误！").show();
+            return false
+        }
+    })</script>
+</body>
+</html>
